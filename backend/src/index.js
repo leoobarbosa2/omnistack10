@@ -1,12 +1,22 @@
 const express = require('express');
 const routes = require('./routes');
+const mongoose = require('mongoose');
 
 class App {
   constructor(){
     this.server = express();
-
+    
+    this.database();
     this.middlewares();
     this.routes();
+  }
+
+  database(){
+    this.mongoose = mongoose.
+    connect('mongodb+srv://leonardo:leonardo@omni10-vqysw.mongodb.net/week10?retryWrites=true&w=majority', {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+    })
   }
 
   middlewares() {
