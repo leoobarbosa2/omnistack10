@@ -10,7 +10,7 @@ module.exports = {
     const devExists = await Dev.findOne({ github_username });
 
     if(devExists) {
-      return res.status(404).json({error: 'User already exists'})
+      return res.status(409).json({error: 'User already exists'})
     }
 
     const response = await axios.get(`https://api.github.com/users/${github_username}`);
